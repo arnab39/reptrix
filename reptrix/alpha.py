@@ -1,6 +1,7 @@
 import numpy as np
-import utils
 from sklearn.metrics import r2_score
+
+import reptrix.utils as utils
 
 
 def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:

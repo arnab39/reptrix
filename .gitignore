@@ -2,6 +2,7 @@
 build/
 dist/
 wandb/
+data/
 
 results/
 **/__pycache__/

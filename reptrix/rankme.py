@@ -1,5 +1,6 @@
 import numpy as np
-import utils
+
+import reptrix.utils as utils
 
 
 def get_rank(eigen: np.ndarray) -> float:
