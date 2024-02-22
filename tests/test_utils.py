@@ -3,7 +3,7 @@ import numpy as np
 from reptrix.utils import get_eigenspectrum
 
 
-def test_get_eigenspectrum():
+def test_get_eigenspectrum() -> None:
     np.random.seed(0)
     arr = np.random.rand(3, 2)
 
