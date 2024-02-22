@@ -15,8 +15,8 @@ def get_rank(eigen: np.ndarray) -> float:
     """
     l1 = np.sum(np.abs(eigen))
     eps = 1e-7
-    scores = eigen / l1 + eps
-    entropy = -np.sum(scores * np.log(scores))
+    eigen_norm = eigen / l1 + eps
+    entropy = -np.sum(eigen_norm * np.log(eigen_norm))
     return np.exp(entropy)
 
 
