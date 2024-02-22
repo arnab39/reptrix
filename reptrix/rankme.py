@@ -1,6 +1,8 @@
 import numpy as np
 import torch
+
 import reptrix.utils as utils
+
 
 def get_rank(eigen: np.ndarray) -> float:
     """Get effective rank of the representation covariance matrix
@@ -14,17 +16,17 @@ def get_rank(eigen: np.ndarray) -> float:
     l1 = np.sum(np.abs(eigen))
     eps = 1e-7
     eigen_norm = eigen / l1 + eps
-    entropy = -np.sum(eigen_norm*np.log(eigen_norm))
+    entropy = -np.sum(eigen_norm * np.log(eigen_norm))
     return np.exp(entropy)
 
-def get_rankme(activations: torch.Tensor,
-              max_eigenvals: int = 2048) -> float:
+
+def get_rankme(activations: torch.Tensor, max_eigenvals: int = 2048) -> float:
     """Get RankMe metric
     (https://proceedings.mlr.press/v202/garrido23a)
 
     Args:
         activations (np.ndarray): Activation tensor of shape (bsz,d1,d2...dn)
-        max_eigenvals (int, optional): Maximum #eigenvalues to compute. 
+        max_eigenvals (int, optional): Maximum #eigenvalues to compute.
                                     Defaults to 2048.
 
     Returns:
@@ -32,10 +34,11 @@ def get_rankme(activations: torch.Tensor,
     """
     try:
         activations_arr = activations.detach()
-    except:
+    except:  # noqa: E722
         activations_arr = activations
     activations_arr = activations_arr.cpu().numpy()
-    eigen = utils.get_eigenspectrum(activations_np=activations_arr,
-                              max_eigenvals=max_eigenvals)
+    eigen = utils.get_eigenspectrum(
+        activations_np=activations_arr, max_eigenvals=max_eigenvals
+    )
     rank = get_rank(eigen)
     return rank
