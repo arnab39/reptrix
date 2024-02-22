@@ -85,7 +85,6 @@ jobs:
         run: pipx run coverage lcov -o coverage.lcov
 
   publish:
-    needs: finalize
     if: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags/') }}
     runs-on: ubuntu-latest
     permissions:
