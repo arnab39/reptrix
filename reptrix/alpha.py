@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.metrics import r2_score
-import utils
+import reptrix.utils as utils
 
 def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:
     """Fit powerlaw and return decay, powerlaw fit and the goodness of fit
@@ -50,7 +50,7 @@ def get_alpha(activations: np.ndarray,
               fit_range : np.ndarray = np.arange(5,100)) -> tuple:
     """Get alpha and powerlaw fit
     (https://proceedings.neurips.cc/paper_files/paper/2022/hash/70596d70542c51c8d9b4e423f4bf2736-Abstract-Conference.html)
-    
+
     Args:
         activations (np.ndarray): Activation tensor of shape (bsz,d1,d2...dn)
         max_eigenvals (int, optional): Maximum #eigenvalues to compute. 
