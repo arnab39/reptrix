@@ -21,3 +21,5 @@ sbatch_err/
 *.png
 **/.ipynb_checkpoints/*
 **/*.pkl
+.vscode/settings.json
+.coverage
