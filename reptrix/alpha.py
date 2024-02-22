@@ -1,4 +1,5 @@
 import numpy as np
+import torch
 from sklearn.metrics import r2_score
 import reptrix.utils as utils
 
@@ -45,7 +46,7 @@ def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:
         fit_R2_100 = None
     return (alpha, ypred, fit_R2, fit_R2_100)
 
-def get_alpha(activations: np.ndarray,
+def get_alpha(activations: torch.Tensor,
               max_eigenvals: int = 2048,
               fit_range : np.ndarray = np.arange(5,100)) -> tuple:
     """Get alpha and powerlaw fit
