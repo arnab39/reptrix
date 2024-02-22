@@ -13,7 +13,7 @@ setup(
     install_requires=[
         'torch',  # Specify your project's dependencies here
         'numpy', 
-        'scikit-learn'
+        'scikit-learn',
         'torchvision',
     ],
     classifiers=[
