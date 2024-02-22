@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
 
 def get_eigenspectrum(activations_np: np.ndarray, 
                       max_eigenvals: int = 2048) -> np.ndarray:
@@ -23,3 +24,18 @@ def get_eigenspectrum(activations_np: np.ndarray,
     pca.fit(feats_center)
     eigenspectrum = pca.explained_variance_ratio_
     return eigenspectrum
+
+def plot_eigenspectrum(eigenspectrum: np.ndarray) -> None:
+    """Plot eigenspectrum in log-log scale
+
+    Args:
+        eigenspectrum (np.ndarray): Eigenspectrum of activation covariance matrix
+    """
+    xrange = np.arange(1,1+len(eigenspectrum))
+    plt.loglog(xrange, eigenspectrum, c='blue', lw=2.0, label='Eigenspectrum')
+    plt.xlim(right=1024)
+    plt.ylim(bottom=1e-6)
+    plt.legend()
+    plt.grid('on', color='gray', lw=1.0, alpha=0.3)
+    plt.xlabel('i')
+    plt.ylabel(r'$\lambda_i$')

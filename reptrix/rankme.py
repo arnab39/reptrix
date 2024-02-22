@@ -1,4 +1,5 @@
 import numpy as np
+import torch
 import reptrix.utils as utils
 
 def get_rank(eigen: np.ndarray) -> float:
@@ -12,11 +13,11 @@ def get_rank(eigen: np.ndarray) -> float:
     """
     l1 = np.sum(np.abs(eigen))
     eps = 1e-7
-    scores = eigen / l1 + eps
-    entropy = - np.sum(scores * np.log(scores))
+    eigen_norm = eigen / l1 + eps
+    entropy = -np.sum(eigen_norm*np.log(eigen_norm))
     return np.exp(entropy)
 
-def get_rankme(activations: np.ndarray,
+def get_rankme(activations: torch.Tensor,
               max_eigenvals: int = 2048) -> float:
     """Get RankMe metric
     (https://proceedings.mlr.press/v202/garrido23a)

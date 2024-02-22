@@ -1,5 +1,7 @@
 import numpy as np
+import torch
 from sklearn.metrics import r2_score
+import matplotlib.pyplot as plt
 import reptrix.utils as utils
 
 def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:
@@ -45,7 +47,7 @@ def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:
         fit_R2_100 = None
     return (alpha, ypred, fit_R2, fit_R2_100)
 
-def get_alpha(activations: np.ndarray,
+def get_alpha(activations: torch.Tensor,
               max_eigenvals: int = 2048,
               fit_range : np.ndarray = np.arange(5,100)) -> tuple:
     """Get alpha and powerlaw fit
@@ -74,3 +76,19 @@ def get_alpha(activations: np.ndarray,
                               max_eigenvals=max_eigenvals)
     alpha_res = get_powerlaw(eigen=eigen, trange= fit_range)
     return alpha_res
+
+def plot_powerlaw(eigenspectrum: np.ndarray, alpha_res: tuple) -> None:
+    """Plot eigenspectrum and powerlaw fit
+
+    Args:
+        eigenspectrum (np.ndarray): Eigenspectrum of activation covariance matrix
+        alpha_res (tuple): Tuple containing alpha, powerlaw fit, 
+                        goodness of powerlaw fit, 
+                        goodness of powerlaw fit for first 100 eigenvalues
+    """
+    utils.plot_eigenspectrum(eigenspectrum=eigenspectrum)
+    alpha, ypred, r2, r2_100 = alpha_res
+    xrange = np.arange(1, 1+len(ypred))
+    plt.loglog(xrange, ypred, c='red', ls='--', lw=2.0, label='Powerlaw fit')
+    plt.title(rf'Eigenspectrum and powerlaw fit, $\alpha$ = {alpha:.3f} \
+              (r2_100 = {r2_100:.3f})')
