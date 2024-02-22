@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score  # type: ignore
 
 import reptrix.utils as utils
 
@@ -80,9 +80,9 @@ def get_alpha(
         activations_arr = activations.detach()
     except:  # noqa: E722
         activations_arr = activations
-    activations_arr = activations_arr.cpu().numpy()
+    activations_arr_np = activations_arr.cpu().numpy()
     eigen = utils.get_eigenspectrum(
-        activations_np=activations_arr, max_eigenvals=max_eigenvals
+        activations_np=activations_arr_np, max_eigenvals=max_eigenvals
     )
     alpha_res = get_powerlaw(eigen=eigen, trange=fit_range)
     return alpha_res

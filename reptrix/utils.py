@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA  # type: ignore
 
 
 def get_eigenspectrum(
@@ -39,6 +39,6 @@ def plot_eigenspectrum(eigenspectrum: np.ndarray) -> None:
     plt.xlim(right=1024)
     plt.ylim(bottom=1e-6)
     plt.legend()
-    plt.grid('on', color='gray', lw=1.0, alpha=0.3)
+    plt.grid(True, color='gray', lw=1.0, alpha=0.3)
     plt.xlabel('i')
     plt.ylabel(r'$\lambda_i$')
