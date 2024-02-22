@@ -14,6 +14,7 @@ setup(
         'torch',  # Specify your project's dependencies here
         'numpy', 
         'scikit-learn',
+        'matplotlib',
         'torchvision',
     ],
     classifiers=[
