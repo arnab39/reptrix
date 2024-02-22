@@ -4,7 +4,7 @@ setup(
     name='reptrix',  # Replace with your package's name
     version='0.1.0',  # Package version
     author='Arnab Mondal, Arna Ghosh',  # Replace with your name
-    author_email='arnab.mondal@mila.quebec, arna.ghosh@mila.quebec',  # Replace with your email
+    author_email='arnab.mondal@mila.quebec, ghosharn@mila.quebec',  # Replace with your email
     description='Library that provides metrics to assess representation quality',  # Package summary
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
@@ -13,6 +13,7 @@ setup(
     install_requires=[
         'torch',  # Specify your project's dependencies here
         'numpy', 
+        'scikit-learn'
         'torchvision',
     ],
     classifiers=[
