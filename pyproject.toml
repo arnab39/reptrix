@@ -10,3 +10,6 @@ version_scheme = "no-guess-dev"
 
 [tool.black]
 skip-string-normalization = true
+
+[tool.mypy]
+exclude = ['docs']
