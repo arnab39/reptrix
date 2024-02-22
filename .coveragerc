@@ -6,7 +6,7 @@ source = reptrix
 
 [paths]
 source =
-    src/
+    reptrix/
     */site-packages/
 
 [report]
