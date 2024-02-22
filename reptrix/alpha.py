@@ -46,7 +46,7 @@ def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:
         fit_R2_100 = r2_score(
             y_true=logss[trange[0] : 100], y_pred=np.log(np.abs(ypred))[trange[0] : 100]
         )
-    except:
+    except:  # noqa: E722
         fit_R2_100 = None
     return (alpha, ypred, fit_R2, fit_R2_100)
 
@@ -75,7 +75,7 @@ def get_alpha(
     """
     try:
         activations_arr = activations.detach()
-    except:
+    except:  # noqa: E722
         activations_arr = activations
     activations_arr = activations_arr.cpu().numpy()
     eigen = utils.get_eigenspectrum(

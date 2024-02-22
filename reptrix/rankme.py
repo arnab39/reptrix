@@ -32,7 +32,7 @@ def get_rankme(activations: np.ndarray, max_eigenvals: int = 2048) -> float:
     """
     try:
         activations_arr = activations.detach()
-    except:
+    except:  # noqa: E722
         activations_arr = activations
     activations_arr = activations_arr.cpu().numpy()
     eigen = utils.get_eigenspectrum(
