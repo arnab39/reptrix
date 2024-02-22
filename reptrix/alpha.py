@@ -1,6 +1,6 @@
 import numpy as np
-from sklearn.decomposition import PCA
 from sklearn.metrics import r2_score
+import utils
 
 def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:
     """Fit powerlaw and return decay, powerlaw fit and the goodness of fit
@@ -49,7 +49,8 @@ def get_alpha(activations: np.ndarray,
               max_eigenvals: int = 2048,
               fit_range : np.ndarray = np.arange(5,100)) -> tuple:
     """Get alpha and powerlaw fit
-
+    (https://proceedings.neurips.cc/paper_files/paper/2022/hash/70596d70542c51c8d9b4e423f4bf2736-Abstract-Conference.html)
+    
     Args:
         activations (np.ndarray): Activation tensor of shape (bsz,d1,d2...dn)
         max_eigenvals (int, optional): Maximum #eigenvalues to compute. 
@@ -69,7 +70,7 @@ def get_alpha(activations: np.ndarray,
     except:
         activations_arr = activations
     activations_arr = activations_arr.cpu().numpy()
-    eigen = get_eigenspectrum(activations_np=activations_arr,
+    eigen = utils.get_eigenspectrum(activations_np=activations_arr,
                               max_eigenvals=max_eigenvals)
     alpha_res = get_powerlaw(eigen=eigen, trange= fit_range)
     return alpha_res
