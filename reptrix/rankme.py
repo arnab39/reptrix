@@ -1,4 +1,5 @@
 import numpy as np
+import torch
 
 import reptrix.utils as utils
 
@@ -19,7 +20,7 @@ def get_rank(eigen: np.ndarray) -> float:
     return np.exp(entropy)
 
 
-def get_rankme(activations: np.ndarray, max_eigenvals: int = 2048) -> float:
+def get_rankme(activations: torch.Tensor, max_eigenvals: int = 2048) -> float:
     """Get RankMe metric
     (https://proceedings.mlr.press/v202/garrido23a)
 
