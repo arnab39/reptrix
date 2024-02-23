@@ -36,8 +36,9 @@ def plot_eigenspectrum(eigenspectrum: np.ndarray) -> None:
     """
     xrange = np.arange(1, 1 + len(eigenspectrum))
     plt.loglog(xrange, eigenspectrum, c='blue', lw=2.0, label='Eigenspectrum')
-    plt.xlim(right=1024)
-    plt.ylim(bottom=1e-6)
+    xlim_max = 1024 if len(eigenspectrum) > 512 else len(eigenspectrum) - 20
+    plt.xlim(right=xlim_max)
+    plt.ylim(bottom=1e-4)
     plt.legend()
     plt.grid(True, color='gray', lw=1.0, alpha=0.3)
     plt.xlabel('i')

@@ -1,12 +1,16 @@
 import numpy as np
+import torch
 
-from reptrix.utils import get_eigenspectrum
+from reptrix import alpha, rankme
 
 
-def test_get_eigenspectrum() -> None:
+def test_alpha_rankme() -> None:
     np.random.seed(0)
-    arr = np.random.rand(3, 2)
+    torch.manual_seed(0)
+    activations_arr = torch.randn(1000, 1024)
 
-    result = get_eigenspectrum(arr)
+    metric_alpha = alpha.get_alpha(activations_arr)
+    metric_rankme = rankme.get_rankme(activations_arr)
 
-    assert result[0] == 0.6996675118986713
+    assert np.allclose(metric_alpha[0], 0.12024)
+    assert np.allclose(metric_rankme, 613.4726)

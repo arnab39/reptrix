@@ -102,6 +102,6 @@ def plot_powerlaw(eigenspectrum: np.ndarray, alpha_res: tuple) -> None:
     xrange = np.arange(1, 1 + len(ypred))
     plt.loglog(xrange, ypred, c='red', ls='--', lw=2.0, label='Powerlaw fit')
     plt.title(
-        rf'Eigenspectrum and powerlaw fit, $\alpha$ = {alpha:.3f} \
-              (r2_100 = {r2_100:.3f})'
+        rf'Eigenspectrum and powerlaw fit, $\alpha$ = {alpha:.3f} '
+        + rf'(r2_100 = {r2_100:.3f})'
     )
