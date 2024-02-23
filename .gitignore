@@ -23,3 +23,6 @@ sbatch_err/
 **/*.pkl
 .vscode/settings.json
 .coverage
+
+docs/_build/*
+docs/api/*
