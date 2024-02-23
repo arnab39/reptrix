@@ -259,7 +259,7 @@ package:
    are expecting. If you are trying to run CI scripts in a fork repository,
    make sure to push all the tags.
    You can also try to remove all the egg files or the complete egg folder, i.e.,
-   `.eggs`, as well as the `*.egg-info` folders in the `src` folder or
+   `.eggs`, as well as the `*.egg-info` folders in the package folder or
    potentially in the root of your project.
 
 2. Sometimes [tox] misses out when new dependencies are added, especially to
