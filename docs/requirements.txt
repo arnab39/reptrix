@@ -1,6 +1,12 @@
+importlib-metadata
+matplotlib
 myst-parser[linkify]
+numpy
+scikit-learn
 sphinx>=3.2.1
 # Requirements file for ReadTheDocs, check .readthedocs.yml.
 # To build the module reference correctly, make sure every external package
 # under `install_requires` in `setup.cfg` is also listed here!
 sphinx_rtd_theme
+torch
+torchvision
