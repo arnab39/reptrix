@@ -367,5 +367,5 @@ on [PyPI], the following steps can be used to release a new version for
 ```{todo} Please review and change the following definitions:
 ```
 
-[repository]: https://github.com/<USERNAME>/reptrix
-[issue tracker]: https://github.com/<USERNAME>/reptrix/issues
+[repository]: https://github.com/arnab39/reptrix
+[issue tracker]: https://github.com/arnab39/reptrix/issues
