@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import torch
 from sklearn.decomposition import PCA  # type: ignore
 
 
@@ -43,3 +44,32 @@ def plot_eigenspectrum(eigenspectrum: np.ndarray) -> None:
     plt.grid(True, color='gray', lw=1.0, alpha=0.3)
     plt.xlabel('i')
     plt.ylabel(r'$\lambda_i$')
+
+
+def mat_sqrt_inv(matrix: torch.Tensor) -> torch.Tensor:
+    """Compute the square root of inverse of a square (positive definite) matrix.
+
+    Args:
+        matrix (torch.Tensor): Matrix to be be sqrt inverted
+
+    Returns:
+        torch.Tensor: Square root of inverse of matrix
+    """
+    # Ensure the input is a square matrix
+    assert matrix.size(0) == matrix.size(1), "Input must be a square matrix."
+
+    # Compute the inverse of the matrix
+    matrix_inv = torch.inverse(matrix)
+
+    # Compute the eigenvalues and eigenvectors of the inverse matrix
+    eigenvals, eigenvecs = torch.linalg.eig(matrix_inv)
+    sqrt_eigenvals = torch.sqrt(eigenvals.real).type_as(matrix)
+    sqrt_diag = torch.diag(sqrt_eigenvals)
+    eigenvecs_real = eigenvecs.real.type_as(matrix)
+
+    # Reconstruct the matrix
+    result = torch.mm(
+        torch.mm(eigenvecs_real, sqrt_diag), torch.linalg.inv(eigenvecs_real)
+    )
+
+    return result.real

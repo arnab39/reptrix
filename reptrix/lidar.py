@@ -74,7 +74,7 @@ def get_lidar(
     ).mean(dim=0)
     # add Identity to ensure invertibility
     sigma_augs += del_sigma_augs * torch.eye(sigma_augs.shape[0])
-    sigma_augs_inv_sqrt = torch.matrix_power(sigma_augs, -0.5)
+    sigma_augs_inv_sqrt = utils.mat_sqrt_inv(sigma_augs)
 
     # compute LIDAR matrix
     sigma_lidar = sigma_augs_inv_sqrt @ sigma_obj @ sigma_augs_inv_sqrt
