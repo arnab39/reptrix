@@ -4,11 +4,11 @@ body, .body {
 }
 
 a {
-    color: #5a4bdf !important; /* Purple links */
+    color: #2aacf3 !important; /* Links */
 }
 
 a:visited {
-    color: #553a62 !important; /* Darker purple for visited links */
+    color: #c051c5 !important; /* Visited links */
 }
 
 h1, h2, h3, h4, h5, h6 {
