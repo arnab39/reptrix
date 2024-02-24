@@ -57,7 +57,7 @@ def get_powerlaw(eigen: np.ndarray, trange: np.ndarray) -> tuple:
 def get_alpha(
     activations: torch.Tensor,
     max_eigenvals: int = 2048,
-    fit_range: np.ndarray = np.arange(5, 100),
+    fit_range: np.ndarray = None,
 ) -> tuple:
     """Get alpha and powerlaw fit
     (https://proceedings.neurips.cc/paper_files/paper/2022/hash/70596d70542c51c8d9b4e423f4bf2736-Abstract-Conference.html)
@@ -67,7 +67,7 @@ def get_alpha(
         max_eigenvals (int, optional): Maximum #eigenvalues to compute.
                                     Defaults to 2048.
         fit_range (np.ndarray, optional): Range to fit the powerlaw.
-                                        Defaults to np.arange(5,100).
+                                        Defaults to np.arange(10,100).
 
     Returns:
         tuple: Result of size 4
@@ -76,11 +76,13 @@ def get_alpha(
             fit_R2: goodness of powerlaw fit
             fit_R2_100: goodness of powerlaw fit (computed till the 100 eigvals)
     """
-    try:
-        activations_arr = activations.detach()
-    except:  # noqa: E722
-        activations_arr = activations
-    activations_arr_np = activations_arr.cpu().numpy()
+    if fit_range is None:
+        fit_range = np.arange(10, 100)
+    if activations.requires_grad:
+        activations_arr = activations.detach().cpu()
+    else:
+        activations_arr = activations.cpu()
+    activations_arr_np = activations_arr.numpy()
     eigen = utils.get_eigenspectrum(
         activations_np=activations_arr_np, max_eigenvals=max_eigenvals
     )

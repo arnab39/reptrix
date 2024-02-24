@@ -76,14 +76,12 @@ def get_lidar(
     sigma_augs += del_sigma_augs * torch.eye(sigma_augs.shape[0])
     sigma_augs_inv_sqrt = torch.matrix_power(sigma_augs, -0.5)
 
-    # convert sigma matrices to numpy
-    sigma_obj_np = sigma_obj.numpy()
-    sigma_augs_inv_sqrt_np = sigma_augs_inv_sqrt.numpy()
     # compute LIDAR matrix
-    sigma_lidar = sigma_augs_inv_sqrt_np @ sigma_obj_np @ sigma_augs_inv_sqrt_np
+    sigma_lidar = sigma_augs_inv_sqrt @ sigma_obj @ sigma_augs_inv_sqrt
+    sigma_lidar_np = sigma_lidar.numpy()
 
     eigen = utils.get_eigenspectrum(
-        activations_np=sigma_lidar, max_eigenvals=max_eigenvals
+        activations_np=sigma_lidar_np, max_eigenvals=max_eigenvals
     )
     lidar = get_rank(eigen)
     return lidar

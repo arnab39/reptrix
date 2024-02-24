@@ -32,11 +32,11 @@ def get_rankme(activations: torch.Tensor, max_eigenvals: int = 2048) -> float:
     Returns:
         float: RankMe metric
     """
-    try:
-        activations_arr = activations.detach()
-    except:  # noqa: E722
-        activations_arr = activations
-    activations_arr_np = activations_arr.cpu().numpy()
+    if activations.requires_grad:
+        activations_arr = activations.detach().cpu()
+    else:
+        activations_arr = activations.cpu()
+    activations_arr_np = activations_arr.numpy()
     eigen = utils.get_eigenspectrum(
         activations_np=activations_arr_np, max_eigenvals=max_eigenvals
     )
