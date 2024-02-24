@@ -1,0 +1,27 @@
+body, .body {
+    background-color: #333333 !important; /* Dark grey background */
+    color: black !important; /* Black text */
+}
+
+a {
+    color: #2aacf3 !important; /* Links */
+}
+
+a:visited {
+    color: #1e7aac !important; /* Visited links */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333333 !important; /* Dark grey for headers */
+}
+
+body {
+    --themecolor: black;
+  }
+
+  .wy-side-nav-search {
+    background-color: var(--themecolor);
+  }
+  .wy-nav-top {
+    background-color: var(--themecolor);
+  }
