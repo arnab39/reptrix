@@ -72,4 +72,4 @@ def mat_sqrt_inv(matrix: torch.Tensor) -> torch.Tensor:
         torch.mm(eigenvecs_real, sqrt_diag), torch.linalg.inv(eigenvecs_real)
     )
 
-    return result.real
+    return result
