@@ -12,6 +12,7 @@ old_checkpoints/
 checkpoints*/
 simclr_checkpoints*/
 debug_imgs/
+tmp_results/
 ._*
 sbatch_out/
 sbatch_err/
