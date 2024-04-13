@@ -14,7 +14,7 @@ I changed the `foo()` function so that ...
 
 Here are some things to check before creating the pull request. If you encounter any issues, don't hesitate to ask for help :)
 
-- [ ] I have read the [contributor's guide](https://github.com/arnab39/equiadapt/blob/main/CONTRIBUTING.md).
+- [ ] I have read the [contributor's guide](https://github.com/arnab39/reptrix/blob/main/CONTRIBUTING.md).
 - [ ] The base branch of my pull request is the `dev` branch, not the `main` branch.
-- [ ] I ran the [code checks](https://github.com/arnab39/equiadapt/blob/main/CONTRIBUTING.md#implement-your-changes) on the files I added or modified and fixed the errors.
-- [ ] I updated the [changelog](https://github.com/arnab39/equiadapt/blob/main/CHANGELOG.md).
+- [ ] I ran the [code checks](https://github.com/arnab39/reptrix/blob/main/CONTRIBUTING.md#implement-your-changes) on the files I added or modified and fixed the errors.
+- [ ] I updated the [changelog](https://github.com/arnab39/reptrix/blob/main/CHANGELOG.md).
