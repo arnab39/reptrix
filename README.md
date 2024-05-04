@@ -1,11 +1,11 @@
-<!-- [![Documentation Status](https://readthedocs.org/projects/equiadapt/badge/?version=latest)](https://equiadapt.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/PACKAGE?label=pypi%20package)](https://pypi.org/project/equiadapt/) -->
+<!-- [![Documentation Status](https://readthedocs.org/projects/reptrix/badge/?version=latest)](https://reptrix.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/PACKAGE?label=pypi%20package)](https://pypi.org/project/reptrix/) -->
 
 <h3 align="center">
 <p>Representation quality metrics for pretrained deep models! ⭐
 </h3>
 <br>
 
-    
+
 # Reptrix
 
 <p align="center">
@@ -23,7 +23,7 @@ Key Features:
 - *PyTorch Integration*: Seamlessly integrates with existing PyTorch models and workflows, allowing for straightforward monitoring of learned representations with minimal setup.
 - *Open Source*: Open for contributions and enhancements from the community, including any new metrics that are proposed.
 
-Reptrix is the perfect tool for machine learning practitioners looking to quantitatively analyze learned representations and enhance the interpretability of their deep learning models, especially models trained in a self-supervised learning framework. 
+Reptrix is the perfect tool for machine learning practitioners looking to quantitatively analyze learned representations and enhance the interpretability of their deep learning models, especially models trained in a self-supervised learning framework.
 To learn more about why these metrics are essential in modern DL workflows, check out our [blogpost on Assessing Representation Quality in SSL](https://mila.quebec/en/article/a-req/)
 
 ### List of metrics currently supported
@@ -80,8 +80,8 @@ def get_features(encoder_network, dataloader, transform=None, num_augmentations=
             # put the augmentations in an additonal dimension
             features = features.reshape(-1, num_augmentations, features.shape[1])
         all_features.append(features)
-            
-            
+
+
     # Concatenate all the features
     all_features = torch.cat(all_features, dim=0)
     return all_features
