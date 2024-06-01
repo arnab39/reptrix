@@ -153,8 +153,7 @@ For questions related to this code, please raise an issue and you can mail us:
 
 You can check out the [contributor's guide](CONTRIBUTING.md).
 
-This project uses `pre-commit`, you can install it before making any
-changes::
+This project uses `pre-commit`, you can install it before making any changes:
 
     pip install pre-commit
     cd reptrix

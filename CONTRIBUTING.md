@@ -183,12 +183,10 @@ conda activate reptrix
 
    and start making changes. Never work on the main branch!
 
-2. Start your work on this branch. Don't forget to add [docstrings] to new
-   functions, modules and classes, especially if they are part of public APIs.
+2. Start your work on this branch. Don't forget to add [docstrings] to the new
+   functions, modules and classes, especially if they are part of [equiadapt].
 
-3. Add yourself to the list of contributors in `AUTHORS.rst`.
-
-4. When you’re done editing, do:
+3. When you’re done editing, do:
 
    ```
    git add <MODIFIED FILES>
@@ -197,38 +195,41 @@ conda activate reptrix
 
    to record your changes in [git].
 
-   ```{todo} if you are not using pre-commit, please remove the following item:
-   ```
-
    Please make sure to see the validation messages from [pre-commit] and fix
    any eventual issues.
    This should automatically use [flake8]/[black] to check/fix the code style
    in a way that is compatible with the project.
 
-   :::{important}
-   Don't forget to add unit tests and documentation in case your
+> **Note**:
+   Please add unit tests and documentation in case your
    contribution adds an additional feature and is not just a bugfix.
-
    Moreover, writing a [descriptive commit message] is highly recommended.
    In case of doubt, you can check the commit history with:
-
-   ```
-   git log --graph --decorate --pretty=oneline --abbrev-commit --all
-   ```
-
+   `git log --graph --decorate --pretty=oneline --abbrev-commit --all`
    to look for recurring communication patterns.
-   :::
 
-5. Please check that your changes don't break any unit tests with:
+#### Run code checks
 
-   ```
-   tox
-   ```
+Please make sure to see the validation messages from pre-commit and fix any
+eventual issues. This should automatically use [flake8]/[black] to check/fix
+the code style in a way that is compatible with the project.
 
-   (after having installed [tox] with `pip install tox` or `pipx`).
+To run pre-commit manually, you can use:
 
-   You can also use [tox] to run several other pre-configured tasks in the
-   repository. Try `tox -av` to see a list of the available checks.
+```
+pre-commit run --all-files
+```
+
+Please also check that your changes don't break any unit tests with:
+
+```
+tox
+```
+
+(after having installed [tox] with `pip install tox` or `pipx`).
+
+You can also use [tox] to run several other pre-configured tasks in the
+repository. Try `tox -av` to see a list of the available checks.
 
 ### Submit your contribution
 
