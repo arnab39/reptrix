@@ -1,4 +1,4 @@
-<!-- [![Documentation Status](https://readthedocs.org/projects/reptrix/badge/?version=latest)](https://reptrix.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/PACKAGE?label=pypi%20package)](https://pypi.org/project/reptrix/) -->
+[![Documentation Status](https://readthedocs.org/projects/reptrix/badge/?version=latest)](https://reptrix.readthedocs.io/en/latest/?badge=latest) [![PyPI](https://img.shields.io/pypi/v/PACKAGE?label=pypi%20package)](https://pypi.org/project/reptrix/)
 
 <h3 align="center">
 <p>Representation quality metrics for pretrained deep models! ⭐
