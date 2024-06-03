@@ -38,18 +38,18 @@ ResNet50
 
 | Metric    | Time to compute (s) | Memory requirement (GB) |
 |:---------:|:-------------------:|:-----------------------:|
-| $\alpha$-ReQ |                     |                         |
-| RankMe    |                     |                         |
-| LiDAR     |                     |                         |
+| $\alpha$-ReQ |      2.400       |                         |
+| RankMe    |         2.364       |                         |
+| LiDAR     |         7.929       |                         |
 
 
 ViT
 
 | Metric    | Time to compute (s) | Memory requirement (GB) |
 |:---------:|:-------------------:|:-----------------------:|
-| $\alpha$-ReQ |                     |                         |
-| RankMe    |                     |                         |
-| LiDAR     |                     |                         |
+| $\alpha$-ReQ |      0.137          |                         |
+| RankMe    |         0.091       |                         |
+| LiDAR     |         0.162       |                         |
 
 
 ## Using Reptrix in your own workflow
